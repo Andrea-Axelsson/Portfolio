@@ -1,10 +1,10 @@
-function Project() {
+function Project(props) {
   return (
     <>
     <section className="window">
         <header className="window__top bg--green">
             <h3 className="window__title">VayCay Generator</h3>
-            <i className="fa-solid fa-x"></i>
+            <i className="fa-solid fa-x" onClick={props.onClose}></i>
         </header>
         <main className="window__body window__body--big-height bg--beige">
             

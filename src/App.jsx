@@ -4,39 +4,34 @@ import Project from "./components/Project"
 import Checklist from "./components/Checklist"
 import Icons from "./components/Icons"
 import Clock from "./components/Clock"
-
 import React, {useState} from "react"
 
 /* 
-Jag skall klicka på portfolio Ikonen
--Skapa ett useState för portfolioknappen som är default fault.
--Gör ett click event på portfolio ikonen här i App.jsx.
--När man clickar på den knappen så ändras useState till true.
--Skapa en prop i Portfolio komponenten som är kopplad till handle event funktionen.
--I Portfolio komponenten, lägg in props och sätt sedan en onCklick på diven som är kopplad till min handleEvent prop.
--Gör en ternery operator på className portfolioproject som ser om portfolio knappen blivit tryckt (true). Om den är true så kan classen bli display flex, annars none.
-portbtn => toggleWindow(vad, true) => true ? "portfolio-component" : "window-closed
-xBtn => toggleWindow(vad, false) => false ? "portfolio-component" : "window-closed
+-Skapa ett useState med namnet windows som innehåller ett objekt med properties för varje komponent med värdet : false 
+
+-Skapa en toggleWindow function som tar parametern windowName. Detta är ett generiskt namn som blir mer specifikt i argumentet sen.
+-I toggle använd setWindows för att toggla vald property.
+
+-Skapa en prop i Icons som kallar på functionen toggleWindow och som använder den specifika argumentet.
+
+-Gör en ternery operator runt diven med portfolio som avgör om propertyn är true, då kan diven visas. 
+
+
 */
 
 const App = () => {
 
-const [portfolioButton, setPortfolioButton] = useState(false)
-console.log(portfolioButton)
+  const[windows, setWindows] = useState({
+    portfolio: false,
+    project: false,
+    about: false,
+    checklist: false
+  })
 
-const [xButton, setXButton] = useState(false)
-console.log(xButton)
 
-const handlePortfolioButton = () =>{
-  setPortfolioButton(prevPortfolioButton => prevPortfolioButton = true)
+const toggleWindow = (windowName) => {
+  setWindows(prevWindows =>({...prevWindows, [windowName]: !prevWindows [windowName]}))
 }
-
-const handleXButton = () =>{
-  setXButton(prevXButton => prevXButton = true)
-}
-
-
-const windowStyles = portfolioButton ? "portfolio-component" : "window-closed"
 
   return (
     <div className="desktop-container"> 
@@ -46,17 +41,27 @@ const windowStyles = portfolioButton ? "portfolio-component" : "window-closed"
         <div className="upper-desktop-row">
           <div className="icons">
             <Icons
-             handlePortfolioButton={handlePortfolioButton}
+            onIconClick={() => toggleWindow("portfolio")}
             />
           </div>
-          <div className={windowStyles}>
+          {windows.portfolio && 
+          (<div className="portfolio-component">
             <Portfolio
-              handleXButton={handleXButton}
+            onIconClick={() => toggleWindow("project")}
+            onClose={() => toggleWindow("portfolio")}
             />
           </div>
-          <div className="project-component">
-            <Project/>
+          )}
+
+            {windows.project &&
+            (<div className="project-component">
+            <Project
+            onClose={() => toggleWindow("project")}
+            />
         </div>
+        )}
+
+          
           <div className="about">
             <About/>
           </div>
@@ -74,12 +79,28 @@ const windowStyles = portfolioButton ? "portfolio-component" : "window-closed"
         
     </div>
     
-  
-    
-
-      
-    
   )
 }
 
 export default App
+
+
+
+
+/* const [portfolioButton, setPortfolioButton] = useState(false)
+console.log(portfolioButton)
+
+const [xButton, setXButton] = useState(false)
+console.log(xButton)
+
+const handlePortfolioButton = () =>{
+  setPortfolioButton(prevPortfolioButton => prevPortfolioButton = true)
+}
+
+const handleXButton = () =>{
+  setXButton(prevXButton => prevXButton = true)
+} */
+
+
+
+/* const windowStyles = portfolioButton ? "portfolio-component" : "window-closed" */

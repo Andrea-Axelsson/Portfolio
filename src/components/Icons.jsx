@@ -19,7 +19,7 @@ const Icons = (props) => {
                 <img className="icon" src="/src/assets/Linkedin.png" alt="Icon for portfolio project"/>
                 <p className="body-text">LinkedIn</p> 
             </article>
-            <article onClick={props.handlePortfolioButton} className="icon-group">
+            <article onClick={props.onIconClick} className="icon-group">
                 <img className="icon" src="/src/assets/Mapp.png" alt="Icon for portfolio project"/>
                 <p className="body-text">Portfolio</p> 
             </article>
