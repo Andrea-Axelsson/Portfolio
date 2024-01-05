@@ -60,10 +60,6 @@ body {
 
 }
 
-/* .window-closed{
-  display: none;
-} */
-
 .portfolio-component{
   position: absolute;
   top: 10%;
@@ -155,6 +151,7 @@ body {
 
 .all-icons-group{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;

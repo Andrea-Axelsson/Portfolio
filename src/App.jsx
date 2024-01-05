@@ -5,33 +5,63 @@ import Checklist from "./components/Checklist"
 import Icons from "./components/Icons"
 import Clock from "./components/Clock"
 import React, {useState} from "react"
-
-/* 
--Skapa ett useState med namnet windows som innehåller ett objekt med properties för varje komponent med värdet : false 
-
--Skapa en toggleWindow function som tar parametern windowName. Detta är ett generiskt namn som blir mer specifikt i argumentet sen.
--I toggle använd setWindows för att toggla vald property.
-
--Skapa en prop i Icons som kallar på functionen toggleWindow och som använder den specifika argumentet.
-
--Gör en ternery operator runt diven med portfolio som avgör om propertyn är true, då kan diven visas. 
-
-
-*/
+import IconData from "./data/IconData"
+import PortfolioData from "./data/PortfolioData"
+import PortfolioIcon from "./components/PortfolioIcon"
 
 const App = () => {
 
-  const[windows, setWindows] = useState({
+/*   const[windows, setWindows] = useState({
     portfolio: false,
     project: false,
     about: false,
     checklist: false
-  })
+  }) */
 
+  
+  
+  const [windows, setWindows] = useState(IconData)
 
-const toggleWindow = (windowName) => {
+  const toggleWindow = (id) => {
+    setWindows(prevWindows => {
+      return prevWindows.map((window) =>{
+        return window.id === id ? {...window, clicked: !window.clicked} : window
+      })
+    })
+  }
+  
+
+/* const toggleWindow = (windowName) => {
   setWindows(prevWindows =>({...prevWindows, [windowName]: !prevWindows [windowName]}))
-}
+} */
+
+
+const desktopIcons = IconData.map(icon => {
+  return (
+    <Icons
+    key={icon.id}
+    id={icon.id}
+    iconPng={icon.iconPng}
+    altText={icon.altText}
+    iconText={icon.iconText}
+    onIconClick={() => toggleWindow(icon.id)}
+    />
+  )
+})
+
+
+const portfolioIcon = PortfolioData.map(icon => {
+  return (
+    <PortfolioIcon
+    key={icon.id}
+    id={icon.id}
+    iconPng={icon.iconPng}
+    altText={icon.altText}
+    iconText={icon.iconText}
+    /* onIconClick={() => toggleWindow(icon.id)} */
+    />
+  )
+})
 
   return (
     <div className="desktop-container"> 
@@ -39,19 +69,22 @@ const toggleWindow = (windowName) => {
         
         
         <div className="upper-desktop-row">
+          
           <div className="icons">
-            <Icons
-            onIconClick={() => toggleWindow("portfolio")}
-            />
+          <section className="container--small-width">
+            <section className="all-icons-group">
+            {desktopIcons}
+            </section>
+          </section>
+
           </div>
-          {windows.portfolio && 
-          (<div className="portfolio-component">
+         {/*  {windows.portfolio && 
+          ( */}<div className="portfolio-component">
             <Portfolio
-            onIconClick={() => toggleWindow("project")}
-            onClose={() => toggleWindow("portfolio")}
+            portfolioIcon ={portfolioIcon}
             />
           </div>
-          )}
+        {/*   )} */}
 
             {windows.project &&
             (<div className="project-component">
