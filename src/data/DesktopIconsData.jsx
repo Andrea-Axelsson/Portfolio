@@ -6,7 +6,7 @@ export default [
         iconPng: "Dokument.png",
         altText: "Icon for documents",
         iconText: "Om Mig",
-        clicked: false
+        clicked: true
     },
     {
         id: 2,

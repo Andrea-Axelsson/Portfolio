@@ -85,6 +85,10 @@ body {
   max-width: 400px;
 }
 
+.display-none{
+  display: none;
+}
+
 .window__top{
   display: flex;
   flex-direction: row;
@@ -159,6 +163,7 @@ body {
 }
 
 .icon-group{
+ /*  max-width: 70px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

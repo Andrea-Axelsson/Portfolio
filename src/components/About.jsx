@@ -1,10 +1,10 @@
-function About() {
+function About(props) {
   return (
     <>
     <section className="window">
         <header className="window__top bg--yellow">
             <h3 className="window__title">Om mig</h3>
-            <i className="fa-solid fa-x"></i>
+            <i className="fa-solid fa-x" onClick={props.onClose}></i>
         </header>
         <main className="window__body bg--pink window__body--big-height">
                 <img className="window__about-image" src="/src/assets/avatar-andrea.jpeg" alt="Image of Me"/>
