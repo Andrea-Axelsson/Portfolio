@@ -1,4 +1,24 @@
+import React, { useState } from "react"
+
+
 function Project(props) {
+
+  const tagElements = Object.values(props.tags).map((tag, index) => (
+    <div className="project-tag" key={index}>
+        <p className="small-text">{tag}</p>
+    </div>
+))
+
+const backgroundImage = {
+  background: `url(/src/assets/${props.projectImage})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'bottom',
+  width: '100%',
+  height: '200px',
+  marginTop: '20px'
+}
+
+
   return (
     <>
     <section className="window">
@@ -8,27 +28,16 @@ function Project(props) {
         </header>
         <main className="window__body window__body--big-height bg--beige">
             
-                <div className="window__project-image">
+                <div style={backgroundImage} >
                 <section className="project-tag-group">
-                <div className="project-tag">
-                    <p className="small-text">{props.tags.tag1}</p>
-                    </div>
-                    <div className="project-tag">
-                    <p className="small-text">{props.tags.tag2}</p>
-                    </div>
-                    <div className="project-tag">
-                    <p className="small-text">{props.tags.tag3}</p>
-                    </div>
-                    <div className="project-tag">
-                    <p className="small-text">{props.tags.tag4}</p>
-                    </div>
+                {tagElements}
                 </section>     
                  
                 </div> 
         <p className="body-text">{props.bodyText}</p>
         <section className="window__button-group">
-            <button className="window__button">Besök Sidan</button>
-            <button className="window__button">Github</button>  
+            <a href={props.website} target="_blank" className="window__button">Besök Sidan</a>
+            <a href={props.github} target="_blank"className="window__button">Github</a>  
         </section>
         </main>
     </section>

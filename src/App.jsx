@@ -1,24 +1,26 @@
+// Importing necessary components and hooks
 import About from "./components/About"
 import Portfolio from "./components/Portfolio"
 import Project from "./components/Project"
 import Checklist from "./components/Checklist"
 import Icons from "./components/Icons"
 import Clock from "./components/Clock"
-import React, {useState} from "react"
+import React, { useState } from "react"
 import DesktopIconsData from "./data/DesktopIconsData"
 import PortfolioData from "./data/PortfolioData"
 import PortfolioIcon from "./components/PortfolioIcon"
 import ProjectData from "./data/ProjectData"
 
+// Defining the main App component
 const App = () => {
-
-  /* När man öppnar ett portfolioprojekt så skall bara ett projekt öppnas, inte alla. */
-
-
+  // State hooks for managing desktop and portfolio windows, and selected project ID
   const [desktopWindows, setdesktopWindows] = useState(DesktopIconsData)
   const [portfolioWindows, setPortfolioWindows] = useState(PortfolioData)
+  const [selectedProjectId, setSelectedProjectId] = useState(null)
 
+  // Function to toggle visibility of portfolio windows
   const togglePortfolioWindows = (id) => {
+    setSelectedProjectId(id)
     setPortfolioWindows(prevPortfolioWindows => {
       return prevPortfolioWindows.map((portfolioWindow) =>{
         if (portfolioWindow.id === id){
@@ -29,6 +31,7 @@ const App = () => {
     })
   }
 
+  // Function to toggle visibility of desktop windows
   const toggleDesktopWindows = (id) => {
     setdesktopWindows(prevdesktopWindows => {
       return prevdesktopWindows.map((desktopWindow) =>{
@@ -40,128 +43,99 @@ const App = () => {
     })
   }
 
+  // Finding specific windows based on their ID
   const portfolioWindow = desktopWindows.find(desktopWindow => desktopWindow.id === 4)
-
   const aboutWindow = desktopWindows.find(desktopWindow => desktopWindow.id === 1)
-  
-const projectWindow = portfolioWindows.find(portfolioWindow => portfolioWindow.id ===1)
+  const projectWindow = portfolioWindows.find(portfolioWindow => portfolioWindow.id === selectedProjectId)
 
-const desktopIcons = DesktopIconsData.map(icon => {
-  return (
-    <Icons
-    key={icon.id}
-    id={icon.id}
-    iconPng={icon.iconPng}
-    altText={icon.altText}
-    iconText={icon.iconText}
-    onIconClick={() => toggleDesktopWindows(icon.id)}
+  // Finding the selected project data
+  const selectedProject = ProjectData.find(project => project.id === selectedProjectId)
 
-    />
-  )
-})
+  // Mapping desktop icons to components
+  const desktopIcons = DesktopIconsData.map(icon => {
+    return (
+      <Icons
+        key={icon.id}
+        id={icon.id}
+        iconPng={icon.iconPng}
+        altText={icon.altText}
+        iconText={icon.iconText}
+        onIconClick={() => toggleDesktopWindows(icon.id)}
+      />
+    )
+  })
 
+  // Mapping portfolio icons to components
+  const portfolioIcon = PortfolioData.map(icon => {
+    return (
+      <PortfolioIcon
+        key={icon.id}
+        id={icon.id}
+        iconPng={icon.iconPng}
+        altText={icon.altText}
+        iconText={icon.iconText}
+        onIconClick={() => togglePortfolioWindows(icon.id)}
+      />
+    )
+  })
 
-const portfolioIcon = PortfolioData.map(icon => {
-  return (
-    <PortfolioIcon
-    key={icon.id}
-    id={icon.id}
-    iconPng={icon.iconPng}
-    altText={icon.altText}
-    iconText={icon.iconText}
-    onIconClick={() => togglePortfolioWindows(icon.id)}
-    />
-  )
-})
-
-const portfolioProject = ProjectData.map(project => {
-  return (
+  // Conditional rendering for the selected project component
+  const portfolioProject = selectedProject ? (
     <Project
-    id={project.id}
-    projectTitle={project.projectTitle}
-    projectImage={project.projectImage}
-    tags={project.tags}
-    bodyText={project.bodyText}
-    onClose={() => togglePortfolioWindows(projectWindow.id)}
+      id={selectedProject.id}
+      projectTitle={selectedProject.projectTitle}
+      projectImage={selectedProject.projectImage}
+      tags={selectedProject.tags}
+      bodyText={selectedProject.bodyText}
+      website={selectedProject.website}
+      github={selectedProject.github}
+      onClose={() => togglePortfolioWindows(selectedProjectId)}
     />
-  )
-})
+  ) : null
 
+  // JSX for rendering the App UI
   return (
-    <div className="desktop-container"> 
-
-        <div className="upper-desktop-row">
-          
-          <div className="icons">
+    <div className="desktop-container">
+      <div className="upper-desktop-row">
+        <div className="icons">
           <section className="container--small-width">
             <section className="all-icons-group">
-            {desktopIcons}
+              {desktopIcons}
             </section>
           </section>
-
-          </div>
-          {portfolioWindow && portfolioWindow.clicked && 
+        </div>
+        {portfolioWindow && portfolioWindow.clicked && 
           (<div className="portfolio-component">
             <Portfolio
-            portfolioIcon ={portfolioIcon}
-            onClose={() => toggleDesktopWindows(portfolioWindow.id)}
+              portfolioIcon={portfolioIcon}
+              onClose={() => toggleDesktopWindows(portfolioWindow.id)}
             />
           </div>
-         )} 
-
-{projectWindow && projectWindow.clicked && (
-  <div className="project-component">
+        )}
+        {projectWindow && projectWindow.clicked && (
+          <div className="project-component">
             {portfolioProject}
-        </div>
-
-)}
-        
-
-
-          {aboutWindow && aboutWindow.clicked &&(
-            <div className="about">
+          </div>
+        )}
+        {aboutWindow && aboutWindow.clicked && (
+          <div className="about">
             <About
-            onClose={() => toggleDesktopWindows(aboutWindow.id)}
+              onClose={() => toggleDesktopWindows(aboutWindow.id)}
             />
           </div>
-          )}
-          
+        )}
+      </div>
+      <div className="bottom-desktop-row">
+        <div className="checklist">
+          <Checklist/>
         </div>
-
-        <div className="bottom-desktop-row">
-          <div className="checklist">
-            <Checklist/>
-          </div>
-          <div className="clock-component">
-            <Clock/>
-          </div>
+        <div className="clock-component">
+          <Clock/>
         </div>
-        
-        
+      </div>
     </div>
-    
   )
 }
 
+// Exporting the App component for use in other parts of the application
 export default App
-
-
-
-
-/* const [portfolioButton, setPortfolioButton] = useState(false)
-console.log(portfolioButton)
-
-const [xButton, setXButton] = useState(false)
-console.log(xButton)
-
-const handlePortfolioButton = () =>{
-  setPortfolioButton(prevPortfolioButton => prevPortfolioButton = true)
-}
-
-const handleXButton = () =>{
-  setXButton(prevXButton => prevXButton = true)
-} */
-
-
-
-/* const desktopWindowstyles = portfolioButton ? "portfolio-component" : "window-closed" */
