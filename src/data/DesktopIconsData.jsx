@@ -20,7 +20,8 @@ export default [
         iconPng: "Linkedin.png",
         altText: "Icon for Linkedin",
         iconText: "Linkedin",
-        clicked: false
+        clicked: false,
+        link: "https://www.linkedin.com/in/axelsson-andrea/"
     },
     {
         id: 4,
@@ -40,7 +41,9 @@ export default [
         id: 6,
         iconPng: "github.svg",
         altText: "Icon for Github",
-        iconText: "Github"
+        iconText: "Github",
+        clicked: false,
+        link: "https://github.com/Andrea-Axelsson"
     },
 
 

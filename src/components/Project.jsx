@@ -33,12 +33,12 @@ const backgroundImage = {
                 {tagElements}
                 </section>     
                  
-                </div> 
-        <p className="body-text">{props.bodyText}</p>
-        <section className="window__button-group">
+                </div>
+          <section className="window__button-group">
             <a href={props.website} target="_blank" className="window__button">Besök Sidan</a>
             <a href={props.github} target="_blank"className="window__button">Github</a>  
-        </section>
+          </section> 
+        <p className="body-text">{props.bodyText}</p>
         </main>
     </section>
     </>

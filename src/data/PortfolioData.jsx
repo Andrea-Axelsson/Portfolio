@@ -19,28 +19,35 @@ export default [
         id: 3,
         iconPng: "Bilder.png",
         altText: "Icon for portfolio project",
-        iconText: "Color Generator",
+        iconText: "Quizzical",
         clicked: false
     },
     {
         id: 4,
         iconPng: "Bilder.png",
         altText: "Icon for portfolio project",
-        iconText: "Restaurant ordering app",
+        iconText: "Avatar Card Game",
         clicked: false
     },
     {
         id: 5,
         iconPng: "Bilder.png",
         altText: "Icon for portfolio project",
-        iconText: "Password generator",
+        iconText: "Movie Watchlist",
         clicked: false
     },
     {
         id: 6,
         iconPng: "Bilder.png",
         altText: "Icon for portfolio project",
-        iconText: "Gul bil game",
+        iconText: "Color Generator",
+        clicked: false
+    },
+    {
+        id: 7,
+        iconPng: "Bilder.png",
+        altText: "Icon for portfolio project",
+        iconText: "Oldagram",
         clicked: false
     },
 

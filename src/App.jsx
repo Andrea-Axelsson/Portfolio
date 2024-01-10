@@ -60,6 +60,7 @@ const App = () => {
         iconPng={icon.iconPng}
         altText={icon.altText}
         iconText={icon.iconText}
+        link={icon.link}
         onIconClick={() => toggleDesktopWindows(icon.id)}
       />
     )

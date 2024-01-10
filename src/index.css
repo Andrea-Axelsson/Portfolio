@@ -163,10 +163,12 @@ body {
 }
 
 .icon-group{
- /*  max-width: 70px; */
+  max-width: 60px;
+  text-align: center;
+  margin: 10px 10px 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
   cursor: url("assets/Peka.png"), auto;
 }
@@ -183,6 +185,8 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 0.625em;
+  
 }
 
 
@@ -191,7 +195,6 @@ body {
 
 .icon{
   width: 70px;
-  
 }
 
 .checkbox{
@@ -301,6 +304,10 @@ body {
 
 /* TEXT */
 
+a{
+  text-decoration: none;
+}
+
 .window__title{
   font-family: 'Miriam Libre', sans-serif;
   font-size: 1.125rem;
@@ -314,6 +321,7 @@ body {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
+  
 }
 
 .small-text{
