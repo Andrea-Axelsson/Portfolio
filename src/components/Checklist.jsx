@@ -23,7 +23,7 @@ const Checklist = () => {
     <section className="window container--small-width">
         <header className="window__top bg--yellow">
             <h3 className="window__title">Checklist</h3>
-            <i className="fa-solid fa-x"></i>
+            {/* <i className="fa-solid fa-x"></i> */}
         </header>
         <main className="window__body window__body--small-height bg--beige">
             {checkboxes.map((checkbox)=>

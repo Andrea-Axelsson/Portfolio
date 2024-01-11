@@ -7,7 +7,12 @@ function About(props) {
             <i className="fa-solid fa-x" onClick={props.onClose}></i>
         </header>
         <main className="window__body bg--pink window__body--big-height">
-                <img className="window__about-image" src="/src/assets/avatar-andrea.jpeg" alt="Image of Me"/>
+          <div className="image-div">
+          <img className="window__about-image" src="/src/assets/avatar-andrea.jpeg" alt="Image of Me"/>
+          <img className="image-sticker1" src="/src/assets/flower.png"/>
+          <img className="image-sticker2" src="/src/assets/flower2.png"/>
+          </div>
+                
 
                 <h3 className="window__title">Andrea Axelsson
                 <br></br>Front end developer</h3>

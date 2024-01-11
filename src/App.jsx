@@ -10,6 +10,7 @@ import DesktopIconsData from "./data/DesktopIconsData"
 import PortfolioData from "./data/PortfolioData"
 import PortfolioIcon from "./components/PortfolioIcon"
 import ProjectData from "./data/ProjectData"
+import Contact from "./components/Contact"
 
 // Defining the main App component
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
 
   // Finding specific windows based on their ID
   const portfolioWindow = desktopWindows.find(desktopWindow => desktopWindow.id === 4)
+  const contactWindow = desktopWindows.find(desktopWindow => desktopWindow.id === 2)
   const aboutWindow = desktopWindows.find(desktopWindow => desktopWindow.id === 1)
   const projectWindow = portfolioWindows.find(portfolioWindow => portfolioWindow.id === selectedProjectId)
 
@@ -98,15 +100,24 @@ const App = () => {
   return (
     <div className="desktop-container">
       <div className="upper-desktop-row">
-        <div className="icons">
+        <div className="icons-component">
           <section className="container--small-width">
             <section className="all-icons-group">
               {desktopIcons}
             </section>
           </section>
         </div>
+        {contactWindow && contactWindow.clicked &&
+      (
+        <div className="contact-component">
+          <Contact
+          onClose={() => toggleDesktopWindows(contactWindow.id)}
+          />
+        </div>
+      )
+      }
         {portfolioWindow && portfolioWindow.clicked && 
-          (<div className="portfolio-component">
+          (<div className={`portfolio-component ${portfolioWindow.clicked ? 'open-animation' : 'close-animation'}`}>
             <Portfolio
               portfolioIcon={portfolioIcon}
               onClose={() => toggleDesktopWindows(portfolioWindow.id)}
@@ -114,12 +125,12 @@ const App = () => {
           </div>
         )}
         {projectWindow && projectWindow.clicked && (
-          <div className="project-component">
+          <div className={`project-component ${projectWindow.clicked ? 'open-animation' : 'close-animation'}`}>
             {portfolioProject}
           </div>
         )}
         {aboutWindow && aboutWindow.clicked && (
-          <div className="about">
+          <div className={`about-component ${aboutWindow.clicked ? 'open-animation' : 'close-animation'}`}>
             <About
               onClose={() => toggleDesktopWindows(aboutWindow.id)}
             />
@@ -127,7 +138,7 @@ const App = () => {
         )}
       </div>
       <div className="bottom-desktop-row">
-        <div className="checklist">
+        <div className="checklist-component">
           <Checklist/>
         </div>
         <div className="clock-component">

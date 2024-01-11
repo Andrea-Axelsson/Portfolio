@@ -38,19 +38,20 @@ body {
   justify-content: space-between;
 }
 
-.about {
+.about-component {
   margin-right: 300px;
   margin-bottom: 20px;
+
 }
 
-.checklist {
+.checklist-component {
 
   margin-left: 200px;
   margin-top: 20px;
 
 }
 
-.icons {
+.icons-component {
   margin-left: 100px;
 
 }
@@ -60,10 +61,18 @@ body {
 
 }
 
+.contact-component{
+  position: absolute;
+  top: 30%;
+  left: 40%;
+
+}
+
 .portfolio-component{
   position: absolute;
   top: 10%;
   left: 25%;
+
 }
 
 .project-component{
@@ -71,7 +80,39 @@ body {
   top: 30%;
   left: 30%;
   z-index: 1;
+  
 }
+
+.open-animation{
+  animation: open 0.3s ease-in-out;
+}
+
+.close-animation{
+  animation: close 0.3s ease-in-out;
+}
+
+/* ANIMATION */
+
+@keyframes close {
+  0%{
+    transform: scale(1)
+  }
+  100%{
+    transform: scale(0)
+  }
+}
+
+@keyframes open {
+  0%{
+    transform: scale(0)
+  }
+  100%{
+    transform: scale(1)
+  }
+}
+
+
+
 
 
 .window{
@@ -229,22 +270,34 @@ body {
 
 .window__about-image{
   width: 249px;
-  height: 329px;
+  height: 250px;
   border: 2px solid #502A07;
   float: right;
-  margin: 20px 0 20px 30px  
+  margin: 20px 0 20px 30px; 
+  object-fit: cover; 
 }
 
-/* .window__project-image{
-  background: url("/src/assets/nature.jpg");
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  margin-top: 20px; 
-} */
+.image-div{
+  position: relative;
+}
+
+.image-sticker1{
+  position: absolute;
+ 
+  width: 90px;
+  left: 50%;
+}
+
+.image-sticker2{
+  position: absolute;
+ 
+  width: 90px;
+  left: 90%;
+  bottom: 100%;
+}
 
 .window__button{
-  background: #77BDA1;
+  background-color: #77BDA1;
   border: 2px solid #502A07;
   border-radius: 10px; 
   padding: 10px; 
@@ -256,7 +309,12 @@ body {
   margin: 10px 10px 20px 10px;
   cursor: url("assets/Peka.png"), auto;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 
+}
+
+.window__button:hover{
+  background-color: #59967d;
 }
 
 /* MEDIA QUERIES */
@@ -273,12 +331,13 @@ body {
 }
 
 @media (max-width: 1500px){
-  .about,
-  .checklist, 
-  .icons, 
+  .about-component,
+  .checklist-component, 
+  .icons-component, 
   .clock-component,
   .project-component,
-  .portfolio-component{
+  .portfolio-component,
+  .contact-component{
     margin: 10px 20px;
   }
 
@@ -286,7 +345,8 @@ body {
 
 @media (max-width: 1000px) {
   .portfolio-component,
-  .project-component{
+  .project-component,
+  .contact-component{
     position: static;
   }
 
@@ -306,6 +366,7 @@ body {
 
 a{
   text-decoration: none;
+  color: black;
 }
 
 .window__title{
@@ -346,4 +407,29 @@ a{
 
 .clock-date{
 font-size: 40px;
+}
+
+ul{
+  font-family: 'Source Code Pro', monospace;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin-top: 2.8125em;
+  gap: 23px;
+  padding:0;
+}
+
+.li-mail{
+  background: url("assets/mail-contact.png") left center no-repeat;
+    background-size: 20px; 
+    padding-left: 30px;
+    cursor: url("assets/Peka.png"), auto; 
+}
+
+.li-phone{
+  background: url("assets/phone.png") left center no-repeat;
+    background-size: 20px; 
+    padding-left: 30px;
+    cursor: url("assets/Peka.png"), auto; 
 }

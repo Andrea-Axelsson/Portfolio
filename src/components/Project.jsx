@@ -3,6 +3,10 @@ import React, { useState } from "react"
 
 function Project(props) {
 
+  const createMarkup = () => {
+    return { __html: props.bodyText };
+  };
+
   const tagElements = Object.values(props.tags).map((tag, index) => (
     <div className="project-tag" key={index}>
         <p className="small-text">{tag}</p>
@@ -38,7 +42,8 @@ const backgroundImage = {
             <a href={props.website} target="_blank" className="window__button">Besök Sidan</a>
             <a href={props.github} target="_blank"className="window__button">Github</a>  
           </section> 
-        <p className="body-text">{props.bodyText}</p>
+          <p className="body-text" dangerouslySetInnerHTML={createMarkup()}></p>
+
         </main>
     </section>
     </>
