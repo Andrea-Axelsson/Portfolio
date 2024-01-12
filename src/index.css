@@ -65,7 +65,6 @@ body {
   position: absolute;
   top: 30%;
   left: 40%;
-
 }
 
 .portfolio-component{
@@ -92,7 +91,6 @@ body {
 }
 
 /* ANIMATION */
-
 @keyframes close {
   0%{
     transform: scale(1)
@@ -110,6 +108,17 @@ body {
     transform: scale(1)
   }
 }
+
+
+@keyframes spin-back-forth {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
 
 
 
@@ -268,32 +277,32 @@ body {
   cursor: url("assets/Peka.png"), auto;
 }
 
-.window__about-image{
+.image-div{
+  position: relative;
+  background-image: url("assets/avatar-andrea.jpeg");
   width: 249px;
   height: 250px;
   border: 2px solid #502A07;
   float: right;
   margin: 20px 0 20px 30px; 
-  object-fit: cover; 
-}
-
-.image-div{
-  position: relative;
+  background-size: cover; 
+  background-position: center;
 }
 
 .image-sticker1{
   position: absolute;
- 
   width: 90px;
-  left: 50%;
+  left: -10%;
+  top: -10%;
+  animation: spin-back-forth 3s infinite;
 }
 
 .image-sticker2{
   position: absolute;
- 
-  width: 90px;
-  left: 90%;
-  bottom: 100%;
+  width: 75px;
+  left: 80%;
+  bottom: -12%;
+  animation: spin-back-forth 3s infinite;
 }
 
 .window__button{
@@ -320,7 +329,7 @@ body {
 /* MEDIA QUERIES */
 
 @media (max-width: 600px){
-  .window__about-image{
+  .image-div{
     float: none;
     margin: 10px auto;
     height: 200px;

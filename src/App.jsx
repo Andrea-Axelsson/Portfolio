@@ -109,7 +109,7 @@ const App = () => {
         </div>
         {contactWindow && contactWindow.clicked &&
       (
-        <div className="contact-component">
+        <div className={`contact-component ${contactWindow.clicked ? 'open-animation' : 'close-animation'}`}>
           <Contact
           onClose={() => toggleDesktopWindows(contactWindow.id)}
           />
