@@ -16,22 +16,22 @@ function About(props) {
                 <h3 className="window__title">Andrea Axelsson
                 <br></br>Front end developer</h3>
                 <p className="body-text">
-                Hejsan! Va kul att du hittat hit!
-
+                Hej, vad kul att du har hittat till mitt lilla hörn av internet!
                 <br></br>
                 <br></br>
-
-                🎓Under min tvååriga utbildning på Digital Content Designer upptäckte jag min passion för att skapa användarvänliga och snygga digitala upplevelser. Men framför allt upptäckte jag att det var ännu mer spännande att göra designen funktionell genom programmering. Valde därför att fördjupa mig i frontendutveckling där jag både kan arbeta kreativt samt gotta ner mig i problemlösning vilket är något av det roligaste jag vet!
-
+                Jag heter Andrea, studerar till Front end utvecklare och tar examen 2025.  Min resa inom programmering började med en yrkeshögskoleexamen i Digital Content Design. Det var under denna tid jag upptäckte min passion för programmering. Jag blev fascinerad av hur man kan omvandla design till fungerande, interaktiva element och möjligheten och kunna bygga vad som helst som man faktiskt kan ha nytta av.
                 <br></br>
                 <br></br>
-
-                🚀 Sedan september 2023 studerar jag Frontendutvecklare på Folkuniversitetet. Jag ser verkligen fram emot att fördjupa mina kunskaper och bidra till att skapa webbupplevelser som inte bara är visuellt tilltalande, utan också felfria och användarvänliga.
-                
+                Kreativt skapande har alltid varit en stor del av mitt liv och jag finner stor glädje i att kombinera estetik med funktion. Den där känslan när en design inte bara ser bra ut, men också fungerar felfritt, är helt enkelt obeskrivlig.
                 <br></br>
                 <br></br>
-
-                🤓 Jag har alltid varit ivrig att lära mig nytt och kallar mig själv en "online course junkie." Jag älskar att ständigt utveckla mina färdigheter och har alltid en onlinekurs som jag fördjupar mig i när jag får en stund över. Det är en av de saker jag älskar mest med programmering - det finns alltid något nytt att lära och utforska.
+                Jag har alltid varit ivrig att lära mig nytt och kallar mig själv en "online course junkie." Jag älskar att ständigt utveckla mina färdigheter och har alltid en onlinekurs som jag fördjupar mig i när jag får en stund över. Det är en av de saker jag älskar mest med programmering - det finns alltid något nytt att lära och utforska.
+                <br></br>
+                <br></br>
+                När jag inte kodar eller utforskar nya webbteknologier, kan du hitta mig djupt försjunken i någon serie med Ricky Gervais, mysa med hunden, eller njuta av ett vinterbad, förutsatt att det finns en bastu i närheten. 
+                <br></br>
+                <br></br>
+                Jag ser fram emot att använda mina kunskaper och min kreativitet för att skapa unika, användarvänliga webblösningar. Låt oss skapa något fantastiskt tillsammans!
                 </p>
         </main>
     </section>

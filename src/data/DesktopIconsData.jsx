@@ -35,7 +35,8 @@ export default [
         iconPng: "Dokument.png",
         altText: "Icon for CV",
         iconText: "CV",
-        clicked: false
+        clicked: false,
+        link: "https://drive.google.com/file/d/1pl_p2XnPnZxTj_Vwz25pzHzpbT0srFjh/view?usp=sharing",
     },
     {
         id: 6,
