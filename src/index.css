@@ -3,7 +3,7 @@
 }
 
 body {
-  background: 
+  background-image: 
     url("assets/grid.png"),
     url("assets/stars.png"),
     linear-gradient(180deg, #E1BEF6 0%, #A6DBFF 100%);
@@ -430,14 +430,14 @@ ul{
 }
 
 .li-mail{
-  background: url("assets/mail-contact.png") left center no-repeat;
+  background-image: url("assets/mail-contact.png") left center no-repeat;
     background-size: 20px; 
     padding-left: 30px;
     cursor: url("assets/Peka.png"), auto; 
 }
 
 .li-phone{
-  background: url("assets/phone.png") left center no-repeat;
+  background-image: url("assets/phone.png") left center no-repeat;
     background-size: 20px; 
     padding-left: 30px;
     cursor: url("assets/Peka.png"), auto; 

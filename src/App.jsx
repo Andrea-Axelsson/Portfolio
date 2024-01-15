@@ -20,31 +20,37 @@ const App = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null)
   const [triggerScroll, setTriggerScroll] = useState(false)
 
-  // Function to toggle visibility of portfolio windows
-  const togglePortfolioWindows = (id) => {
-    setSelectedProjectId(id)
-    setPortfolioWindows(prevPortfolioWindows => {
-      return prevPortfolioWindows.map((portfolioWindow) =>{
-        if (portfolioWindow.id === id){
-          console.log(portfolioWindow.clicked)
-        }
-        return portfolioWindow.id === id ? {...portfolioWindow, clicked: !portfolioWindow.clicked} : portfolioWindow
-      })
-    })
-  }
 
-  // Function to toggle visibility of desktop windows
-  const toggleDesktopWindows = (id) => {
-    setdesktopWindows(prevdesktopWindows => {
-      return prevdesktopWindows.map((desktopWindow) =>{
-        if (desktopWindow.id === id){
-          console.log(desktopWindow.clicked)
-        }
-        return desktopWindow.id === id ? {...desktopWindow, clicked: !desktopWindow.clicked} : desktopWindow
-      })
+const updateWindows = (id, stateSetter, clickedState) => {
+  stateSetter(prevWindows => {
+    return prevWindows.map((window) => {
+      if(window.id === id){
+        console.log(window.clicked)
+      }
+      return window.id===id ? {...window, clicked: clickedState} : window
     })
-    
-  }
+  })
+}
+
+const openPortfolioWindows = (id) => {
+  setSelectedProjectId(id)
+  updateWindows(id, setPortfolioWindows, true)
+}
+
+const closePortfolioWindows = (id) => {
+  setSelectedProjectId(id)
+  updateWindows(id, setPortfolioWindows, false)
+}
+
+const openDesktopWindows = (id) => {
+  updateWindows(id, setdesktopWindows, true)
+}
+
+const closeDesktopWindows = (id) => {
+  updateWindows(id, setdesktopWindows, false)
+}
+
+
 
    // Finding specific windows based on their ID
    const portfolioWindow = desktopWindows.find(desktopWindow => desktopWindow.id === 4)
@@ -61,35 +67,31 @@ const App = () => {
 
 
   const portfolioRef = useRef()
-  const constactRef = useRef()
+  const contactRef = useRef()
   const aboutRef = useRef()
   const projectRef = useRef()
 
   useEffect(()=> {
     if (triggerScroll){
-      /* const portfolioElement = document.getElementById("portfolio-element")
-      const contactElement = document.getElementById("contact-element")
-      const aboutElement = document.getElementById("about-element")
-      const projectElement = document.getElementById("project-element") */
 
-      if (portfolioWindow && portfolioRef.current){
+      if (portfolioWindow && portfolioWindow.clicked && portfolioRef.current){
+        console.log("port")
         portfolioRef.current.scrollIntoView({behavior: "smooth", block: "center"})
-      }else if (contactWindow && constactRef.current){
-        constactRef.current.scrollIntoView({behavior: "smooth", block: "center"})
-      }else if (aboutWindow && aboutRef.current){
-        aboutRef.current.scrollIntoView({behavior: "smooth", block: "top"})
-      }else if (projectWindow && projectRef.current){
-        projectRef.current.scrollIntoView({behavior: "smooth", block: "top"})
+      }else if (contactWindow && contactWindow.clicked && contactRef.current){
+        console.log("con")
+        contactRef.current.scrollIntoView({behavior: "smooth", block: "center"})
+      }else if (aboutWindow && aboutWindow.clicked && aboutRef.current){
+        console.log("abo")
+        aboutRef.current.scrollIntoView({behavior: "smooth", block: "center"})
+      }else if (projectWindow && projectWindow.clicked && projectRef.current){
+        console.log("proj")
+        projectRef.current.scrollIntoView({behavior: "smooth", block: "center"})
       }
       setTriggerScroll(false)
     }
   }, [triggerScroll])
 
-  
 
- 
-
-  
 
   // Mapping desktop icons to components
   const desktopIcons = DesktopIconsData.map(icon => {
@@ -101,7 +103,7 @@ const App = () => {
         altText={icon.altText}
         iconText={icon.iconText}
         link={icon.link}
-        onIconClick={() => toggleDesktopWindows(icon.id)}
+        onIconClick={() => openDesktopWindows(icon.id)}
         scroll={scrollToElement}
       />
     )
@@ -116,7 +118,7 @@ const App = () => {
         iconPng={icon.iconPng}
         altText={icon.altText}
         iconText={icon.iconText}
-        onIconClick={() => togglePortfolioWindows(icon.id)}
+        onIconClick={() => openPortfolioWindows(icon.id)}
         scroll={scrollToElement}
       />
     )
@@ -132,7 +134,7 @@ const App = () => {
       bodyText={selectedProject.bodyText}
       website={selectedProject.website}
       github={selectedProject.github}
-      onClose={() => togglePortfolioWindows(selectedProjectId)}
+      onClose={() => closePortfolioWindows(selectedProjectId)}
     />
   ) : null
 
@@ -149,9 +151,9 @@ const App = () => {
         </div>
         {contactWindow && contactWindow.clicked &&
       (
-        <div ref={constactRef}  className={`contact-component ${contactWindow.clicked ? 'open-animation' : 'close-animation'}`}>
+        <div ref={contactRef}  className={`contact-component ${contactWindow.clicked ? 'open-animation' : 'close-animation'}`}>
           <Contact
-          onClose={() => toggleDesktopWindows(contactWindow.id)}
+          onClose={() => closeDesktopWindows(contactWindow.id)}
           />
         </div>
       )
@@ -160,7 +162,7 @@ const App = () => {
           (<div ref={portfolioRef} className={`portfolio-component ${portfolioWindow.clicked ? 'open-animation' : 'close-animation'}`}>
             <Portfolio
               portfolioIcon={portfolioIcon}
-              onClose={() => toggleDesktopWindows(portfolioWindow.id)}
+              onClose={() => closeDesktopWindows(portfolioWindow.id)}
             />
           </div>
         )}
@@ -172,7 +174,7 @@ const App = () => {
         {aboutWindow && aboutWindow.clicked && (
           <div ref={aboutRef} className={`about-component ${aboutWindow.clicked ? 'open-animation' : 'close-animation'}`}>
             <About
-              onClose={() => toggleDesktopWindows(aboutWindow.id)}
+              onClose={() => closeDesktopWindows(aboutWindow.id)}
             />
           </div>
         )}
