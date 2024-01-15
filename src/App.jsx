@@ -18,7 +18,7 @@ const App = () => {
   const [desktopWindows, setdesktopWindows] = useState(DesktopIconsData)
   const [portfolioWindows, setPortfolioWindows] = useState(PortfolioData)
   const [selectedProjectId, setSelectedProjectId] = useState(null)
-  const [triggerScroll, setTriggerScroll] = useState(false)
+  const [triggerScroll, setTriggerScroll] = useState(null)
 
 
 const updateWindows = (id, stateSetter, clickedState) => {
@@ -44,6 +44,7 @@ const closePortfolioWindows = (id) => {
 
 const openDesktopWindows = (id) => {
   updateWindows(id, setdesktopWindows, true)
+  //scrollto(destination)
 }
 
 const closeDesktopWindows = (id) => {
@@ -61,8 +62,9 @@ const closeDesktopWindows = (id) => {
    // Finding the selected project data
    const selectedProject = ProjectData.find(project => project.id === selectedProjectId)
 
-  const scrollToElement = () => {
-    setTriggerScroll(true)
+   
+  const scrollToElement = (windowId) => {
+    setTriggerScroll(windowId)
   }
 
 
@@ -71,26 +73,19 @@ const closeDesktopWindows = (id) => {
   const aboutRef = useRef()
   const projectRef = useRef()
 
-  useEffect(()=> {
-    if (triggerScroll){
+  const windowRefs = {
+    1: aboutRef,
+    2: contactRef,
+    4: portfolioRef,
+    // Du kanske behöver lägga till en entry för varje projekt ID i portfolioWindows här
+  }
 
-      if (portfolioWindow && portfolioWindow.clicked && portfolioRef.current){
-        console.log("port")
-        portfolioRef.current.scrollIntoView({behavior: "smooth", block: "center"})
-      }else if (contactWindow && contactWindow.clicked && contactRef.current){
-        console.log("con")
-        contactRef.current.scrollIntoView({behavior: "smooth", block: "center"})
-      }else if (aboutWindow && aboutWindow.clicked && aboutRef.current){
-        console.log("abo")
-        aboutRef.current.scrollIntoView({behavior: "smooth", block: "center"})
-      }else if (projectWindow && projectWindow.clicked && projectRef.current){
-        console.log("proj")
-        projectRef.current.scrollIntoView({behavior: "smooth", block: "center"})
-      }
-      setTriggerScroll(false)
+  useEffect(() => {
+    if (triggerScroll && windowRefs[triggerScroll] && windowRefs[triggerScroll].current) {
+      windowRefs[triggerScroll].current.scrollIntoView({behavior: "smooth", block: "center"})
+      setTriggerScroll(null) // nollställ triggerScroll
     }
   }, [triggerScroll])
-
 
 
   // Mapping desktop icons to components
@@ -103,8 +98,10 @@ const closeDesktopWindows = (id) => {
         altText={icon.altText}
         iconText={icon.iconText}
         link={icon.link}
-        onIconClick={() => openDesktopWindows(icon.id)}
-        scroll={scrollToElement}
+        onIconClick={() => {
+          openDesktopWindows(icon.id)
+          scrollToElement(icon.id)
+        }}
       />
     )
   })
@@ -118,8 +115,10 @@ const closeDesktopWindows = (id) => {
         iconPng={icon.iconPng}
         altText={icon.altText}
         iconText={icon.iconText}
-        onIconClick={() => openPortfolioWindows(icon.id)}
-        scroll={scrollToElement}
+        onIconClick={() => {
+          openPortfolioWindows(icon.id)
+          scrollToElement(icon.id)
+        }}
       />
     )
   })
