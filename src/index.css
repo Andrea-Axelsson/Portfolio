@@ -4,8 +4,8 @@
 
 body {
   background-image: 
-    url("assets/grid.png"),
-    url("assets/stars.png"),
+    url("/assets/grid.png"),
+    url("/assets/stars.png"),
     linear-gradient(180deg, #E1BEF6 0%, #A6DBFF 100%);
   background-size: 100% 100%, cover, 100% 100%;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -13,7 +13,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  cursor: url("assets/Pil.png"), auto;
+  cursor: url("/assets/Pil.png"), auto;
 }
 
 .desktop-container{
@@ -220,7 +220,7 @@ body {
   flex-direction: column;
   justify-content: top;
   align-items: center;
-  cursor: url("assets/Peka.png"), auto;
+  cursor: url("/assets/Peka.png"), auto;
 }
 
 .project-tag-group{
@@ -251,7 +251,7 @@ body {
 .checkbox{
   width: 20px;
   height: 20px;
-  cursor: url("assets/Peka.png"), auto;
+  cursor: url("/assets/Peka.png"), auto;
 }
 
 .checklist-item{
@@ -275,12 +275,12 @@ body {
 
 .fa-x{
   font-size: 1.125rem;
-  cursor: url("assets/Peka.png"), auto;
+  cursor: url("/assets/Peka.png"), auto;
 }
 
 .image-div{
   position: relative;
-  background-image: url("/avatar-andrea.jpeg");
+  background-image: url("/assets/avatar-andrea.jpeg");
   width: 249px;
   height: 250px;
   border: 2px solid #502A07;
@@ -317,7 +317,7 @@ body {
   font-weight: 400;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
   margin: 10px 10px 20px 10px;
-  cursor: url("assets/Peka.png"), auto;
+  cursor: url("/assets/Peka.png"), auto;
   text-decoration: none;
   transition: background-color 0.3s ease;
 
@@ -435,15 +435,15 @@ ul{
 }
 
 .li-mail{
-  background-image: url("assets/mail-contact.png") left center no-repeat;
+  background-image: url("/assets/mail-contact.png") left center no-repeat;
     background-size: 20px; 
     padding-left: 30px;
-    cursor: url("assets/Peka.png"), auto; 
+    cursor: url("/assets/Peka.png"), auto; 
 }
 
 .li-phone{
-  background-image: url("assets/phone.png") left center no-repeat;
+  background-image: url("/assets/phone.png") left center no-repeat;
     background-size: 20px; 
     padding-left: 30px;
-    cursor: url("assets/Peka.png"), auto; 
+    cursor: url("/assets/Peka.png"), auto; 
 }
