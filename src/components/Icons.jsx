@@ -4,7 +4,7 @@ const Icons = (props) => {
     <>
     <a href={props.link} target="_blank">
       <article className="icon-group" onClick={props.onIconClick}>
-        <img className="icon" src={`/src/assets/${props.iconPng}`} alt={props.altText}/>
+        <img className="icon" src={`/public/assets/${props.iconPng}`} alt={props.altText}/>
         <p className="body-text">{props.iconText}</p> 
       </article>
     </a>

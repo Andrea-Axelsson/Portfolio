@@ -8,8 +8,8 @@ function About(props) {
         </header>
         <main className="window__body bg--pink window__body--big-height">
           <div className="image-div">
-          <img className="image-sticker1" src="/src/assets/flower.png"/>
-          <img className="image-sticker2" src="/src/assets/flower3.png"/>
+          <img className="image-sticker1" src="/assets/flower.png"/>
+          <img className="image-sticker2" src="/assets/flower3.png"/>
           </div>
                 
 
