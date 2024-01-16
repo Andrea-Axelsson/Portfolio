@@ -339,11 +339,7 @@ body {
     margin-bottom: 0px;
   }
   .project-tag{
-    display: inline-block;
-    background: #FBD16D;
-    border-radius: 5px;
-    padding: 0 10px;
-    border: 2px solid #502A07; 
+    padding: 0 5px;
     margin: 5px;
   }
 }
