@@ -226,6 +226,7 @@ body {
 .project-tag-group{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: flex-end;
   height: 100%;
 }
@@ -336,6 +337,14 @@ body {
     width: 100%;
     object-fit: cover;
     margin-bottom: 0px;
+  }
+  .project-tag{
+    display: inline-block;
+    background: #FBD16D;
+    border-radius: 5px;
+    padding: 0 10px;
+    border: 2px solid #502A07; 
+    margin: 5px;
   }
 }
 
