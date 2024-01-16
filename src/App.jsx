@@ -67,6 +67,10 @@ const closeDesktopWindows = (id) => {
     setTriggerScroll(windowId)
   }
 
+  const scrollToProjectWindows = () => {
+    scrollToElement(3); // '3' is the ID assigned to the project windows section
+  };
+
 
   const portfolioRef = useRef()
   const contactRef = useRef()
@@ -76,8 +80,8 @@ const closeDesktopWindows = (id) => {
   const windowRefs = {
     1: aboutRef,
     2: contactRef,
+    3: projectRef,
     4: portfolioRef,
-    // Du kanske behöver lägga till en entry för varje projekt ID i portfolioWindows här
   }
 
   useEffect(() => {
@@ -117,7 +121,7 @@ const closeDesktopWindows = (id) => {
         iconText={icon.iconText}
         onIconClick={() => {
           openPortfolioWindows(icon.id)
-          scrollToElement(icon.id)
+          scrollToProjectWindows(icon.id)
         }}
       />
     )
