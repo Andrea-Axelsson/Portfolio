@@ -32,7 +32,7 @@ const backgroundImage = {
         </header>
         <main className="window__body window__body--big-height bg--beige">
             
-                <div style={backgroundImage} >
+                <div className="div-container" style={backgroundImage} >
                 <section className="project-tag-group">
                 {tagElements}
                 </section>     
