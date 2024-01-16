@@ -14,7 +14,7 @@ function Project(props) {
 ))
 
 const backgroundImage = {
-  backgroundImage: `url(/src/assets/${props.projectImage})`,
+  backgroundImage: `url(/assets/${props.projectImage})`,
   backgroundSize: 'cover',
   backgroundPosition: 'bottom',
   width: '100%',

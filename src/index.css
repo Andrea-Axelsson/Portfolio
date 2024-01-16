@@ -280,7 +280,7 @@ body {
 
 .image-div{
   position: relative;
-  background-image: url("assets/avatar-andrea.jpeg");
+  background-image: url("/avatar-andrea.jpeg");
   width: 249px;
   height: 250px;
   border: 2px solid #502A07;
