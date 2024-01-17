@@ -245,6 +245,20 @@ body {
 
 /* IMAGES, ICONS, BUTTONS */
 
+.langauage-flag{
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  cursor: url("/assets/Peka.png"), auto;
+}
+
+.flags-group{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
 .icon{
   width: 70px;
 }

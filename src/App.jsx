@@ -20,6 +20,20 @@ const App = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null)
   const [triggerScroll, setTriggerScroll] = useState(null)
 
+  const [language, setLanguage] = useState("Swe");
+
+  const changeLanguage = (id) => {
+    setLanguage(() => {
+      if (id === 1){
+        return "Swe";
+      } else if (id === 2){
+        return "Eng";
+      }
+    });
+  }
+
+console.log(language)
+  
 
 const updateWindows = (id, stateSetter, clickedState) => {
   stateSetter(prevWindows => {
@@ -94,18 +108,20 @@ const closeDesktopWindows = (id) => {
 
   // Mapping desktop icons to components
   const desktopIcons = DesktopIconsData.map(icon => {
+    const iconText = language === "Swe" ? icon.iconTextSwe : icon.iconTextEng
     return (
       <Icons
         key={icon.id}
         id={icon.id}
         iconPng={icon.iconPng}
         altText={icon.altText}
-        iconText={icon.iconText}
+        iconText={iconText}
         link={icon.link}
         onIconClick={() => {
           openDesktopWindows(icon.id)
           scrollToElement(icon.id)
         }}
+        language={language}
       />
     )
   })
@@ -127,24 +143,33 @@ const closeDesktopWindows = (id) => {
     )
   })
 
+  const bodyText = selectedProject && (language === "Swe" ? selectedProject.bodyTextSwe : selectedProject.bodyTextEng)
   // Conditional rendering for the selected project component
   const portfolioProject = selectedProject ? (
+    
     <Project
       id={selectedProject.id}
       projectTitle={selectedProject.projectTitle}
       projectImage={selectedProject.projectImage}
       tags={selectedProject.tags}
-      bodyText={selectedProject.bodyText}
+      bodyText={bodyText}
       website={selectedProject.website}
       github={selectedProject.github}
       onClose={() => closePortfolioWindows(selectedProjectId)}
+      language={language}
     />
   ) : null
 
   // JSX for rendering the App UI
   return (
     <div className="desktop-container">
+      <div className="flags-group">
+          <div onClick={() => changeLanguage(1)} ><p className="langauage-flag">🇸🇪</p></div>
+          <div onClick={() => changeLanguage (2)} ><p className="langauage-flag">🇬🇧</p></div>
+        </div>
       <div className="upper-desktop-row">
+        
+        
         <div className="icons-component">
           <section className="container--small-width">
             <section className="all-icons-group">

@@ -3,6 +3,14 @@ import React, { useState } from "react"
 
 function Project(props) {
 
+  const visitSiteButtonText = () => {
+    if(props.language === "Swe"){
+      return "Besök Sidan"
+    }else if (props.language === "Eng"){
+      return "Visit Site"
+    }
+  }
+
   const createMarkup = () => {
     return { __html: props.bodyText };
   };
@@ -39,7 +47,7 @@ const backgroundImage = {
                  
                 </div>
           <section className="window__button-group">
-            <a href={props.website} target="_blank" className="window__button">Besök Sidan</a>
+            <a href={props.website} target="_blank" className="window__button">{visitSiteButtonText()}</a>
             <a href={props.github} target="_blank"className="window__button">Github</a>  
           </section> 
           <p className="body-text" dangerouslySetInnerHTML={createMarkup()}></p>

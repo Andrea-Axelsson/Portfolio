@@ -5,21 +5,24 @@ export default [
         id: 1,
         iconPng: "Dokument.png",
         altText: "Icon for documents",
-        iconText: "Om Mig",
+        iconTextSwe: "Om Mig",
+        iconTextEng: "About Me",
         clicked: true
     },
     {
         id: 2,
         iconPng: "Mail.png",
         altText: "Icon for Contact",
-        iconText: "Kontakt",
+        iconTextSwe: "Kontakt",
+        iconTextEng: "Contact",
         clicked: false
     },
     {
         id: 3,
         iconPng: "Linkedin.png",
         altText: "Icon for Linkedin",
-        iconText: "Linkedin",
+        iconTextSwe: "Linkedin",
+        iconTextEng: "Linkedin",
         clicked: false,
         link: "https://www.linkedin.com/in/axelsson-andrea/"
     },
@@ -27,14 +30,16 @@ export default [
         id: 4,
         iconPng: "Mapp.png",
         altText: "Icon for Portfolio",
-        iconText: "Portfolio",
+        iconTextSwe: "Portfolio",
+        iconTextEng: "Portfolio",
         clicked: false
     },
     {
         id: 5,
         iconPng: "Dokument.png",
         altText: "Icon for CV",
-        iconText: "CV",
+        iconTextSwe: "CV",
+        iconTextEng: "CV",
         clicked: false,
         link: "https://drive.google.com/file/d/1pl_p2XnPnZxTj_Vwz25pzHzpbT0srFjh/view?usp=sharing",
     },
@@ -42,7 +47,8 @@ export default [
         id: 6,
         iconPng: "github.svg",
         altText: "Icon for Github",
-        iconText: "Github",
+        iconTextSwe: "Github",
+        iconTextEng: "Github",
         clicked: false,
         link: "https://github.com/Andrea-Axelsson"
     },
