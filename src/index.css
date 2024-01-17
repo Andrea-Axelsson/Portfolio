@@ -119,11 +119,6 @@ body {
   }
 }
 
-
-
-
-
-
 .window{
   box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.30);
   display: inline-block;
@@ -194,7 +189,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 332px;
+  width: 100%;
   height: 332px; 
   border-radius: 10px;
   border: 3px solid #FFF;
@@ -279,7 +274,6 @@ body {
   }
 
 
-
 .fa-x{
   font-size: 1.125rem;
   cursor: url("/assets/Peka.png"), auto;
@@ -333,56 +327,6 @@ body {
 .window__button:hover{
   background-color: #59967d;
 }
-
-/* MEDIA QUERIES */
-
-@media (max-width: 600px){
-  .image-div{
-    float: none;
-    margin: 10px auto;
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 0px;
-  }
-  .project-tag{
-    padding: 0 5px;
-
-    
-  }
-}
-
-@media (max-width: 1500px){
-  .about-component,
-  .checklist-component, 
-  .icons-component, 
-  .clock-component,
-  .project-component,
-  .portfolio-component,
-  .contact-component{
-    margin: 10px 20px;
-  }
-
-}
-
-@media (max-width: 1000px) {
-  .portfolio-component,
-  .project-component,
-  .contact-component{
-    position: static;
-  }
-
-  .upper-desktop-row,
-  .bottom-desktop-row{
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-}
-
-
 
 /* TEXT */
 
@@ -454,4 +398,60 @@ ul{
     background-size: 20px; 
     padding-left: 30px;
     cursor: url("/assets/Peka.png"), auto; 
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 600px){
+  .image-div{
+    float: none;
+    margin: 10px auto;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 0px;
+  }
+  .project-tag{
+    padding: 0 5px;
+  }
+
+  .clock-time{
+    font-size: 70px;
+    
+  }
+  
+  .clock-date{
+  font-size: 30px;
+  }
+  
+}
+
+@media (max-width: 1500px){
+  .about-component,
+  .checklist-component, 
+  .icons-component, 
+  .clock-component,
+  .project-component,
+  .portfolio-component,
+  .contact-component{
+    margin: 10px 20px;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  .portfolio-component,
+  .project-component,
+  .contact-component{
+    position: static;
+  }
+
+  .upper-desktop-row,
+  .bottom-desktop-row{
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
