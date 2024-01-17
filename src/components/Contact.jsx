@@ -3,7 +3,7 @@ const Contact = (props) => {
     <>
     <section className="window container--small-width">
         <header className="window__top bg--yellow">
-            <h3 className="window__title">Kontakt</h3>
+            <h3 className="window__title">{props.titleText}</h3>
             <i className="fa-solid fa-x" onClick={props.onClose}></i>
         </header>
         <main className="window__body window__body--small-height bg--beige">

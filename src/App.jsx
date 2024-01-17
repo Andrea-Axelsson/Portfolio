@@ -11,6 +11,7 @@ import PortfolioData from "./data/PortfolioData"
 import PortfolioIcon from "./components/PortfolioIcon"
 import ProjectData from "./data/ProjectData"
 import Contact from "./components/Contact"
+import AboutData from "./data/AboutData"
 
 // Defining the main App component
 const App = () => {
@@ -182,6 +183,7 @@ const closeDesktopWindows = (id) => {
         <div ref={contactRef}  className={`contact-component ${contactWindow.clicked ? 'open-animation' : 'close-animation'}`}>
           <Contact
           onClose={() => closeDesktopWindows(contactWindow.id)}
+          titleText={language === "Swe" ? "Kontakt": "Contact"}
           />
         </div>
       )
@@ -203,13 +205,17 @@ const closeDesktopWindows = (id) => {
           <div ref={aboutRef} className={`about-component ${aboutWindow.clicked ? 'open-animation' : 'close-animation'}`}>
             <About
               onClose={() => closeDesktopWindows(aboutWindow.id)}
+              bodyText={language === "Swe" ? AboutData.bodyTextSwe : AboutData.bodyTextEng}
+              titleText={language === "Swe" ? AboutData.titleTextSwe : AboutData.titleTextEng}
             />
           </div>
         )}
       </div>
       <div className="bottom-desktop-row">
         <div className="checklist-component">
-          <Checklist/>
+          <Checklist
+          language={language}
+          />
         </div>
         <div className="clock-component">
           <Clock/>

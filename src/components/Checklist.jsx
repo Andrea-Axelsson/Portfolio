@@ -1,13 +1,16 @@
-import React, {useState} from "react"
-const Checklist = () => {
+import React, {useState, useEffect} from "react"
+const Checklist = (props) => {
 
-    const [checkboxes, setCheckboxes] = useState([
+    const [checkboxes, setCheckboxes] = useState([])
 
-        {id: 1, name: "checklist", value: "CV", label: "Läs mitt CV", checked: false},
-        {id: 2, name: "checklist", value: "Besök portfolio", label: "Besök 2 portfolio projekt", checked: false},
-        {id: 3, name: "checklist", value: "Om Mig", label: "Läs Om Mig", checked: false},
-        {id: 4, name: "checklist", value: "LIA", label: "Kontakta mig för att prata om LIA", checked: false}
-    ])
+    useEffect(() => {
+        setCheckboxes([
+            {id: 1, name: "checklist", value: "CV", label: props.language === "Swe" ? "Läs mitt CV" : "Read my resume", checked: false},
+        {id: 2, name: "checklist", value: "Besök portfolio", label: props.language === "Swe" ? "Besök 2 portfolio projekt" : "Visit 2 portfolio projects", checked: false},
+        {id: 3, name: "checklist", value: "Om Mig", label: props.language === "Swe" ? "Läs Om Mig" : "Read About Me", checked: false},
+        {id: 4, name: "checklist", value: "LIA", label: props.language === "Swe" ? "Kontakta mig för att prata om LIA😉" : "Contact me to talk about an Internship😉", checked: false}
+        ])
+    }, props.language)
 
     const handleOnChange = (id) => {
         setCheckboxes((prevCheckboxes) =>
