@@ -86,7 +86,6 @@ const closeDesktopWindows = (id) => {
     scrollToElement(3); // '3' is the ID assigned to the project windows section
   };
 
-
   const portfolioRef = useRef()
   const contactRef = useRef()
   const aboutRef = useRef()
@@ -227,3 +226,5 @@ const closeDesktopWindows = (id) => {
 
 // Exporting the App component for use in other parts of the application
 export default App
+
+

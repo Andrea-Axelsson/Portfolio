@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-font: 'Source Code Pro', monospace;
+  --accent-color: #502A07;
+  --cursor-url: url("/assets/Pil.png"), auto;
+  --cursor-point-url: url("/assets/Peka.png"), auto;
+}
+
 body {
   background-image: 
     url("/assets/grid.png"),
@@ -13,102 +20,93 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  cursor: url("/assets/Pil.png"), auto;
+  cursor: var(--cursor-url);
 }
 
-.desktop-container{
+.desktop-container {
   padding: 20px;
   display: flex;
   flex-direction: column;
   position: relative;
-
 }
 
-.upper-desktop-row{
+.upper-desktop-row,
+.bottom-desktop-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- 
-
 }
 
-.bottom-desktop-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.component-margin {
+  margin: 10px 20px;
 }
 
 .about-component {
   margin-right: 300px;
   margin-bottom: 20px;
-
 }
 
 .checklist-component {
-
   margin-left: 200px;
   margin-top: 20px;
-
 }
 
 .icons-component {
   margin-left: 100px;
-
 }
 
 .clock-component {
   margin-right: 20px;
-
 }
 
-.contact-component{
+.contact-component,
+.portfolio-component,
+.project-component {
   position: absolute;
   top: 30%;
+}
+
+.contact-component {
   left: 40%;
 }
 
-.portfolio-component{
-  position: absolute;
+.portfolio-component {
   top: 10%;
   left: 25%;
-
 }
 
-.project-component{
-  position: absolute;
-  top: 30%;
+.project-component {
   left: 30%;
   z-index: 1;
-  
 }
 
-.open-animation{
+/* Animations */
+
+.open-animation {
   animation: open 0.3s ease-in-out;
 }
 
-.close-animation{
+.close-animation {
   animation: close 0.3s ease-in-out;
 }
 
-/* ANIMATION */
 @keyframes close {
-  0%{
+  0% {
     transform: scale(1)
   }
-  100%{
+  100% {
     transform: scale(0)
   }
 }
 
 @keyframes open {
-  0%{
+  0% {
     transform: scale(0)
   }
-  100%{
+  100% {
     transform: scale(1)
   }
 }
-
 
 @keyframes spin-back-forth {
   0%, 100% {
@@ -119,72 +117,75 @@ body {
   }
 }
 
-.window{
+/* Window Element Styles */
+
+.window {
   box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.30);
   display: inline-block;
   border-radius: 10px;
   max-width: 618px;
-  
 }
-.container--small-width{
+
+.container--small-width {
   max-width: 400px;
 }
 
-.display-none{
+.display-none {
   display: none;
 }
 
-.window__top{
+
+.window__top {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   height: 40px; 
   border-radius: 10px 10px 0px 0px;
-  border: 1px solid #502A07;
+  border: 1px solid var(--accent-color);
   padding: 0 20px;
-  color: #502A07;  
+  color: var(--accent-color);  
 }
 
-.window__body{
+.window__body {
   border-radius: 0px 0px 10px 10px;
-  border: 1px solid #502A07;
+  border: 1px solid var(--accent-color);
   padding: 0 20px;
   overflow: hidden;
   overflow-y: scroll;
-
 }
 
-.window__body--small-height{
+.window__body--small-height {
   height: 250px; 
 }
 
-.window__body--big-height{
+.window__body--big-height {
   height: 430px; 
 }
 
-.bg--transparent{
+/* Background colors */
+.bg--transparent {
   background: none;
   border: none;
 }
 
-.bg--yellow{
+.bg--yellow {
   background: #FBD16D;
 }
 
-.bg--pink{
+.bg--pink {
   background: #F4CDCA;
 }
 
-.bg--green{
+.bg--green {
   background:#77BDA1;
 }
 
-.bg--beige{
+.bg--beige {
   background: #FFF4DB;
 }
 
-.clock{
+.clock {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -196,9 +197,8 @@ body {
   background: rgba(225, 190, 246, 0.33); 
 }
 
-/* GROUPS */
-
-.all-icons-group{
+/* Groups */
+.all-icons-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -207,7 +207,7 @@ body {
   margin: 20px 0 
 }
 
-.icon-group{
+.icon-group {
   max-width: 60px;
   text-align: center;
   margin: 10px 10px 0 10px;
@@ -215,7 +215,7 @@ body {
   flex-direction: column;
   justify-content: top;
   align-items: center;
-  cursor: url("/assets/Peka.png"), auto;
+  cursor: var(--cursor-url);
 }
 
 .div-container {
@@ -232,44 +232,41 @@ body {
   gap: 5px;
 }
 
-.window__button-group{
+.window__button-group {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 0.625em;
-  
 }
 
-
-
-/* IMAGES, ICONS, BUTTONS */
-
-.langauage-flag{
+/* Images, icons och buttons */
+.langauage-flag {
   font-size: 30px;
   padding: 0;
   margin: 0;
-  cursor: url("/assets/Peka.png"), auto;
+  cursor: var(--cursor-point-url);
 }
 
-.flags-group{
+.flags-group {
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: flex-end;
 }
 
-.icon{
+.icon {
   width: 70px;
+  cursor: var(--cursor-point-url);
 }
 
-.checkbox{
+.checkbox {
   width: 20px;
   height: 20px;
-  cursor: url("/assets/Peka.png"), auto;
+  cursor: var(--cursor-point-url);
 }
 
-.checklist-item{
+.checklist-item {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -277,35 +274,33 @@ body {
   margin-top: 10px;
 }
 
-.project-tag{
+.project-tag {
   display: inline-block;
   background: #FBD16D;
   border-radius: 5px;
   padding: 0 10px;
   margin: 0 0 10px 10px;
-  border: 2px solid #502A07; 
-
-  }
-
-
-.fa-x{
-  font-size: 1.125rem;
-  cursor: url("/assets/Peka.png"), auto;
+  border: 2px solid var(--accent-color); 
 }
 
-.image-div{
+.fa-x {
+  font-size: 1.125rem;
+  cursor: var(--cursor-point-url);
+}
+
+.image-div {
   position: relative;
   background-image: url("/assets/avatar-andrea.jpeg");
   width: 249px;
   height: 250px;
-  border: 2px solid #502A07;
+  border: 2px solid var(--accent-color);
   float: right;
   margin: 20px 0 20px 30px; 
   background-size: cover; 
   background-position: center;
 }
 
-.image-sticker1{
+.image-sticker1 {
   position: absolute;
   width: 90px;
   left: -10%;
@@ -313,7 +308,7 @@ body {
   animation: spin-back-forth 3s infinite;
 }
 
-.image-sticker2{
+.image-sticker2 {
   position: absolute;
   width: 75px;
   left: 80%;
@@ -321,103 +316,100 @@ body {
   animation: spin-back-forth 3s infinite;
 }
 
-.window__button{
+.window__button {
   background-color: #77BDA1;
-  border: 2px solid #502A07;
+  border: 2px solid var(--accent-color);
   border-radius: 10px; 
   padding: 10px; 
   color: #000;
-  font-family: 'Source Code Pro', monospace;
+  font-family: var(--main-font);
   font-size: 0.875rem;
   font-weight: 400;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
   margin: 10px 10px 20px 10px;
-  cursor: url("/assets/Peka.png"), auto;
+  cursor: var(--cursor-point-url);
   text-decoration: none;
   transition: background-color 0.3s ease;
-
 }
 
-.window__button:hover{
+.window__button:hover {
   background-color: #59967d;
 }
 
-/* TEXT */
-
-a{
+/* Text-styles */
+a {
   text-decoration: none;
   color: black;
 }
 
-.window__title{
+.window__title {
   font-family: 'Miriam Libre', sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   margin-top:1.25em;
 }
 
-.body-text{
+.body-text {
   color: #000;
-  font-family: 'Source Code Pro', monospace;
+  font-family: var(--main-font);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  
 }
 
-.small-text{
+.small-text {
   font-size: 0.75rem;
-  font-family: 'Source Code Pro', monospace;
+  font-family: var(--main-font);
   margin-top: 0.625em;
 }
 
 .clock-time,
-.clock-date{
+.clock-date {
   color: #FFF;
   font-family: Miriam Libre;
   font-weight: 400;
   margin: 10px;
 }
 
-.clock-time{
+.clock-time {
   font-size: 94px;
   border-bottom: #FFF 3px solid;
-  
 }
 
-.clock-date{
-font-size: 40px;
+.clock-date {
+  font-size: 40px;
 }
 
-ul{
-  font-family: 'Source Code Pro', monospace;
+/* Liststyles */
+ul {
+  font-family: var(--main-font);
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  list-style-type: none;
   margin-top: 2.8125em;
   gap: 23px;
-  padding:0;
+  padding: 0;
 }
 
-.li-mail{
-  background-image: url("/assets/mail-contact.png") left center no-repeat;
-    background-size: 20px; 
-    padding-left: 30px;
-    cursor: url("/assets/Peka.png"), auto; 
+.li-mail, .li-phone {
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 20px; 
+  padding-left: 30px;
+  cursor: var(--cursor-point-url);
 }
 
-.li-phone{
-  background-image: url("/assets/phone.png") left center no-repeat;
-    background-size: 20px; 
-    padding-left: 30px;
-    cursor: url("/assets/Peka.png"), auto; 
+.li-mail {
+  background-image: url("/assets/mail-contact.png");
 }
 
-/* MEDIA QUERIES */
+.li-phone {
+  background-image: url("/assets/phone.png");
+}
 
-@media (max-width: 600px){
-  .image-div{
+/* Media queries */
+@media (max-width: 600px) {
+  .image-div {
     float: none;
     margin: 10px auto;
     height: 200px;
@@ -425,47 +417,43 @@ ul{
     object-fit: cover;
     margin-bottom: 0px;
   }
-  .project-tag{
+  .project-tag {
     padding: 0 5px;
   }
 
-  .clock-time{
+  .clock-time {
     font-size: 70px;
-    
   }
-  
-  .clock-date{
-  font-size: 30px;
+
+  .clock-date {
+    font-size: 30px;
   }
-  
 }
 
-@media (max-width: 1500px){
+@media (max-width: 1500px) {
   .about-component,
-  .checklist-component, 
-  .icons-component, 
+  .checklist-component,
+  .icons-component,
   .clock-component,
   .project-component,
   .portfolio-component,
-  .contact-component{
+  .contact-component {
     margin: 10px 20px;
   }
-
 }
 
 @media (max-width: 1000px) {
   .portfolio-component,
   .project-component,
-  .contact-component{
+  .contact-component {
     position: static;
   }
 
   .upper-desktop-row,
-  .bottom-desktop-row{
+  .bottom-desktop-row {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
 }
