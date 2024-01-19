@@ -20,7 +20,9 @@ This is my portfolio that turned in to my biggest passion project so far! I acua
 Users should be able to:
 
     - Experience a nostalgic, colorful, and playful 90s computer desktop environment.
-    - Easily navigate through the portfolio and using a sophisticated scroll function in smaller screens.
+    - Effortlessly navigate through the portfolio in both Swedish and English.
+    - Enjoy the site's full responsiveness, ensuring a seamless experience across various devices and screen sizes.
+    - Utilize a sophisticated scroll function, especially on smaller screens, for smooth and intuitive navigation.
     - Interact with a dynamic UI, showcasing my projects in a unique, engaging manner.
 
 ### Links
