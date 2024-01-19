@@ -83,7 +83,7 @@ const closeDesktopWindows = (id) => {
   }
 
   const scrollToProjectWindows = () => {
-    scrollToElement(3); // '3' is the ID assigned to the project windows section
+    scrollToElement(3);
   };
 
   const portfolioRef = useRef()
@@ -101,7 +101,7 @@ const closeDesktopWindows = (id) => {
   useEffect(() => {
     if (triggerScroll && windowRefs[triggerScroll] && windowRefs[triggerScroll].current) {
       windowRefs[triggerScroll].current.scrollIntoView({behavior: "smooth", block: "center"})
-      setTriggerScroll(null) // nollställ triggerScroll
+      setTriggerScroll(null)
     }
   }, [triggerScroll])
 
