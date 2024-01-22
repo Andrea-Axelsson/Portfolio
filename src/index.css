@@ -290,7 +290,7 @@ body {
 
 .image-div {
   position: relative;
-  background-image: url("/assets/avatar-andrea.jpeg");
+  background-image: url("/assets/andrea-2024.jpeg");
   width: 249px;
   height: 250px;
   border: 2px solid var(--accent-color);
@@ -414,8 +414,9 @@ ul {
     margin: 10px auto;
     height: 200px;
     width: 100%;
-    object-fit: cover;
+    background-size: cover;
     margin-bottom: 0px;
+    background-position: 10% 35%;
   }
   .project-tag {
     padding: 0 5px;
